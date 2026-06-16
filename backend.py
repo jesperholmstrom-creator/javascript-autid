@@ -360,4 +360,3 @@ def export_to_excel(df_summary: pd.DataFrame, df_sources: pd.DataFrame) -> bytes
             df_sources.to_excel(writer, sheet_name="Script Sources", index=False)
     output.seek(0)
     return output.read()
-```---

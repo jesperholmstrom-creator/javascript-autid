@@ -187,7 +187,7 @@ def audit_urls_playwright(
     screenshot_bytes = None
 
     with sync_playwright() as p:
-         browser = p.chromium.launch(headless=True, executable_path="/usr/bin/chromium")
+        browser = p.chromium.launch(headless=True, executable_path="/usr/bin/chromium")
         context = browser.new_context(
             user_agent=HEADERS["User-Agent"],
             viewport={"width": 1280, "height": 800},

@@ -360,4 +360,3 @@ if run and input_url.strip():
         "Excel contains two sheets: **JS Audit Summary** (one row per page) "
         "and **Script Sources** (one row per external script found)."
     )
-```---

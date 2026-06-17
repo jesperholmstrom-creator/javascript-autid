@@ -360,3 +360,46 @@ def export_to_excel(df_summary: pd.DataFrame, df_sources: pd.DataFrame) -> bytes
             df_sources.to_excel(writer, sheet_name="Script Sources", index=False)
     output.seek(0)
     return output.read()
+if (window.__NEXT_DATA__) {
+                framework = 'Next.js';
+                rendering = 'SSR/SSG (Good for SEO)';
+                seo_risk = 'Low';
+                note = 'Content visible to Google';
+            } else if (window.__NUXT__) {
+                framework = 'Nuxt.js';
+                rendering = 'SSR/SSG';
+                seo_risk = 'Low';
+            } else if (window.React || document.querySelector('[data-reactroot]')) {
+                framework = 'React (CRA)';
+                rendering = 'CSR - SEO Risk';
+                seo_risk = 'High';
+                note = 'All content rendered via JS - Google may miss it';
+            } else if (window.Vue && !window.__NUXT__) {
+                const ssr = document.querySelector('[data-server-rendered="true"]');
+                framework = 'Vue.js';
+                rendering = ssr ? 'SSR' : 'CSR - SEO Risk';
+                seo_risk = ssr ? 'Low' : 'High';
+            } else if (window.angular || document.querySelector('[ng-version]')) {
+                framework = 'Angular';
+                rendering = 'CSR - SEO Risk';
+                seo_risk = 'High';
+                note = 'Angular renders via JS - needs Angular Universal for SSR';
+            } else if (window.wp || document.querySelector('link[href*="wp-content"]')) {
+                framework = 'WordPress';
+                rendering = 'Server-Side (Good for SEO)';
+                seo_risk = 'Low';
+            } else if (window.Shopify) {
+                framework = 'Shopify';
+                rendering = 'Server-Side (Good for SEO)';
+                seo_risk = 'Low';
+            } else if (document.querySelector('meta[name="generator"][content*="Wix"]')) {
+                framework = 'Wix';
+                rendering = 'SSR';
+                seo_risk = 'Low';
+            }
+
+            return { framework, rendering, seo_risk, note };
+        }
+    """)
+except Exception:
+    return {"framework": "Unknown", "rendering": "Unknown", "seo_risk": "Unknown", "note": ""}
